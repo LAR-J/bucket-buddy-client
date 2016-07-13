@@ -20,12 +20,26 @@ const homePageHandlers = () => {
   });
 };
 
-const hideHomePageHandler = () => {
-  $('.hide-homescreen').hide();
+const hideHomePage = () => {
+  $(".hide-homescreen").hide();
 };
 
+const displayHomePage = () => {
+  $(".display-homescreen").show();
+};
+
+const displayNav = () => {
+  $(".display-nav").show();
+};
+
+const hideNav = () => {
+  $(".hide-nav").hide();
+};
 
 module.exports = {
   homePageHandlers,
-  hideHomePageHandler
+  hideHomePage,
+  displayHomePage,
+  displayNav,
+  hideNav
 };

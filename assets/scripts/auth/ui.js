@@ -17,13 +17,16 @@ const failure = (error) => {
 };
 
 const signInSuccess = (data) => {
-  homePageEvents.hideHomePageHandler();
+  homePageEvents.hideHomePage();
+  homePageEvents.displayNav();
   app.user = data.user;
   console.log(app.user);
 };
 
 const signOutSuccess = () => {
   console.log('User signed out successfully');
+  homePageEvents.displayHomePage();
+  homePageEvents.hideNav();
   app.user = null;
 };
 
