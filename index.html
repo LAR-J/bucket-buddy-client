@@ -37,7 +37,7 @@
               <button type="button" class="btn btn-primary dropdown-toggle user-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile<span class="caret"></span></button>
               <ul class="dropdown-menu">
                <li><button type="button" class="btn btn-primary user-account" data-toggle="modal" data-target="#modal-create-profile">Create Profile</button></li>
-               <li><button type="button" class="btn btn-primary user-account" data-toggle="modal" data-target="#modal-edit-profile">Edit Profile</button></li>
+               <li><button type="button" class="btn btn-primary user-account" data-toggle="modal" data-target="#modal-update-profile">Update Profile</button></li>
               </ul>
             </div>
           </li>
@@ -163,7 +163,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title" id="myModalLabel4">Create Your User Profile</h4>
+            <h4 class="modal-title" id="myModalLabel4">Create a Profile</h4>
           </div>
           <div class="modal-body">
             <form id="create-profile">
@@ -240,6 +240,93 @@
     </div>
   </div>
 
+
+  <!-- Modal Fullscreen Update User Profile  -->
+  <div class="modal modal-fullscreen fade update-profile" id="modal-update-profile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel5">Update Profile</h4>
+        </div>
+        <div class="modal-body">
+          <form id="update-profile">
+            <div class="form-group">
+              <h6>Your Name</h6>
+              <fieldset>
+                <input type="text" class="form-control" name="profile[name[firstName]]" placeholder="First Name">
+                <input type="text" class="form-control" name="profile[name[lastName]]" placeholder="Last Name">
+              </fieldset>
+            </div>
+            <hr>
+            <div class="form-group">
+              <h6>Username</h6>
+              <fieldset>
+                <input type="text" class="form-control" name="profile[username]" placeholder="Enter Username" required>
+              </fieldset>
+            </div>
+            <hr>
+            <div class="form-group">
+              <h6>About Me</h6>
+              <fieldset>
+                <textarea class="form-control about-me" name="profile[aboutMe]"></textarea>
+              </fieldset>
+            </div>
+            <hr>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <h6>Location</h6>
+                    <fieldset>
+                      <input type="text" class="form-control three-column" name="profile[city]" placeholder="City">
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <h6>Gender</h6>
+                    <fieldset>
+                     <select name="profile[gender]">
+                       <option value="n">No Answer</option>
+                       <option value="f">Female</option>
+                       <option value="m">Male</option>
+                       <option value="o">Other</option>
+                     </select>
+                   </fieldset>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <h6>Date of Birth</h6>
+                    <fieldset>
+                      <input class="form-control three-column" name="profile[dob]" placeholder="Date of Birth" type="date">
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <h6 class="profile-pic">Choose a Profile Picture</h6>
+                  <fieldset>
+                    <label class="btn btn-primary upload">
+                      Browse &hellip; <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                      <input type="file" name="profile[profilePicture]"style="display: none;">
+                    </label>
+                  </fieldset>
+              </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" id="delete-profile" value="delete profile">
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary close-modal">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
       <!-- <form id="create-profile">
        <div class="form-group">
          <h6>Your Name</h6>
@@ -309,7 +396,9 @@
          </div>
        </form> -->
 
-       <form id="update-profile">
+
+
+       <!-- <form id="update-profile">
          <div class="form-group">
            <h6>________Update Your Profile__________</h6>
            <h6>Your Name</h6>
@@ -380,6 +469,9 @@
          </form>
          <div class="form-group">
            <input type="submit" class="btn btn-primary" id="delete-profile" value="delete profile">
-         </div>
+         </div> -->
+
+
+
     </body>
 </html>

@@ -19,6 +19,15 @@ const userEventHandlers = () => {
     $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
     $('.create-profile').find("input", "textarea", "select").val('');
   });
+  $(".update-profile").on('show.bs.modal', function () {
+  setTimeout( function() {
+    $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+  }, 0);
+  });
+  $(".update-profile").on('hidden.bs.modal', function () {
+    $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+    $('.update-profile').find("input", "textarea", "select").val('');
+  });
 };
 
 module.exports = {
