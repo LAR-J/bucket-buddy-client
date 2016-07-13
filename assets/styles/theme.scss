@@ -32,6 +32,27 @@ button.sign-up, button.sign-in {
   margin-left: 40%;
 }
 
+button.user-nav, button.user-sign-out {
+  background-color: $background-color;
+  border-color: $background-color;
+}
+
+button.user-nav:hover, button.user-sign-out:hover {
+  background-color: $background-color;
+  border-color: $background-color;
+}
+
+button.user-account {
+  color: $dark;
+  background-color: $white;
+  border-color: $white;
+}
+
+button.user-account:hover {
+  color: $dark;
+  background-color: $white;
+  border-color: $white;
+}
 
 input.form-control {
     display: block;
@@ -84,7 +105,7 @@ label.upload {
 
 
 
-h1, h2, h4.modal-title, h6, h6.profile-pic {
+h1, h3, h4.modal-title, h6, h6.profile-pic {
   text-align: center;
 }
 

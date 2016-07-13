@@ -32,10 +32,19 @@
       <!-- Vertical Nav Bar on Sign-In -->
       <nav class="hide-nav display-nav">
         <ul class="nav nav-pills nav-stacked">
-          <li role="presentation"><a href="">Profile</a></li>
-          <li role="presentation"><a href="">Browse Buckets</a></li>
-          <li role="presentation"><a href="">My Buckets</a></li>
-          <li role="presentation"><a href="">Account</a></li>
+          <li role="presentation"><button type="button" class="btn btn-primary user-nav">Profile</button></li>
+          <li role="presentation"><button type="button" class="btn btn-primary user-nav">Browse Buckets</button></li>
+          <li role="presentation"><button type="button" class="btn btn-primary user-nav">My Buckets</button></li>
+          <li role="presentation">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle user-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></button>
+              <ul class="dropdown-menu">
+               <li><button type="button" class="btn btn-primary user-account">Change Password</button></li>
+               <li><button type="button" class="btn btn-primary user-account">Edit Profile</button></li>
+               <li><button type="button" class="btn btn-primary user-account">Delete Profile</button></li>
+              </ul>
+            </div>
+          </li>
           <form id="sign-out">
              <fieldset>
                <button type="submit" class="btn btn-primary user-sign-out">Sign Out</button>
