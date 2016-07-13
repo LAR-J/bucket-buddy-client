@@ -4,12 +4,12 @@ const app = require('../app.js');
 
 const createProfileSuccess = (data) => {
   if (data) {
-   console.log(data);
+//   console.log(data);
   } else {
-    console.log('Success');
+//    console.log('Success');
   }
   app.profile = data.profile;
-   console.log(app.profile);
+//   console.log(app.profile);
 };
 
 const createProfileFailure = (error) => {
@@ -18,28 +18,41 @@ const createProfileFailure = (error) => {
 
 const updateProfileSuccess = () => {
 //  app.profile = data.profile;
-  console.log('update profile success');
+//  console.log('update profile success');
 };
 
 const updateProfileFailure = (error) => {
   console.error(error);
 };
 
-// const signInSuccess = (data) => {
-//   app.user = data.user;
-//   console.log(app.user);
-// };
-//
-// const signOutSuccess = () => {
-//   console.log('User signed out successfully');
-//   app.user = null;
-// };
+
+const showProfileSuccess = (data) => {
+  app.profile = data.profile;
+//  console.log(app.profile);
+};
+
+const showProfileFailure = (error) => {
+  console.error(error);
+};
+
+const deleteProfileSuccess = () => {
+  console.log('Profile deleted successfully');
+  app.profile = null;
+};
+
+const deleteProfileFailure = (error) => {
+  console.error(error);
+};
 
 module.exports = {
   createProfileSuccess,
   createProfileFailure,
   updateProfileSuccess,
   updateProfileFailure,
+  showProfileSuccess,
+  showProfileFailure,
+  deleteProfileSuccess,
+  deleteProfileFailure,
   // signInSuccess,
   // signOutSuccess
 };

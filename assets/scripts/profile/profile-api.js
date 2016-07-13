@@ -16,15 +16,44 @@ const createProfile = (data) => {
 
 const updateProfile = (data) => {
   // console.log(data);
-  return $.ajax({
-    url: app.host + '/profiles/' + app.profile.id,
-    method: "PATCH",
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-    data: data,
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: app.host + '/profiles/' + app.profile.id,
+      method: "PATCH",
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+      data: data,
+      success: (response) => {
+        resolve(response);
+      },
+      error: (error) => {
+        reject(error);
+      },
+    });
   });
 };
+
+const showProfile = () => {
+//  console.log(app);
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: app.host + '/profiles/' + app.profile.id,
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+      success: (response) => {
+        resolve(response);
+      },
+      error: (error) => {
+        reject(error);
+      },
+    });
+  });
+};
+
+
 //GET to show profile (single profile)
 
 //PATCH to update profile
@@ -39,21 +68,23 @@ const updateProfile = (data) => {
 //   });
 // };
 //
-// const signOut = () => {
-//   return $.ajax({
-//     url: app.host + '/sign-out/' + app.user.id,
-//     method: "DELETE",
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     },
-//   });
-// };
-//
+const deleteProfile = () => {
+  return $.ajax({
+    url: app.host + '/profiles/' + app.profile.id,
+    method: "DELETE",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
 
 
 module.exports = {
   createProfile,
   updateProfile,
+  showProfile,
+  deleteProfile,
   // signIn,
   // signOut,
   // changePassword,
