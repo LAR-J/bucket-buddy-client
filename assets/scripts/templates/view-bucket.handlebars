@@ -1,0 +1,28 @@
+<div>
+  {{#with bucketpicture}}
+    <img src={{bucketpicture}} alt="bucket list item picture">
+  {{else}}
+    <img src="https://pixabay.com/static/uploads/photo/2015/12/14/21/00/sauna-1093235_640.jpg">
+  {{/with}}
+</div>
+<div>
+  <h3>{{title}}</h3>
+  {{#if link}}
+    <p><a href={{link}}>Website</a></p>
+  {{/if}}
+  {{#if description}}
+    <p>{{description}}</p>
+  {{/if}}
+  <ul>
+    <li>Category: {{category}}</li>
+    {{#if deadline}}
+      <li>Goal: Accomplish by the time I'm {{deadline}} years old.</li>
+    {{/if}}
+    {{#if tags}}
+    <li>Tags:
+      {{#each tag}}
+        ' ' + {{tag}} +','
+      {{/each}}
+    </li>
+  </ul>
+</div>
