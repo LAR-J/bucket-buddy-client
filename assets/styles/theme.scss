@@ -10,10 +10,7 @@ div#bucket {
   border-top: 200px solid transparent;
   border-left: 200px solid #ffde00;
   border-bottom: 200px solid #ffde00;
-  border-top-left-radius: 200px;
-  border-top-right-radius: 200px;
-  border-bottom-left-radius: 200px;
-  border-bottom-right-radius: 200px;
+  border-radius: 200px;
 }
 
 div#sign-up-btn {
@@ -105,9 +102,7 @@ h1, h2, h4.modal-title, h6, h6.profile-pic {
 /* .modal-fullscreen size: we use Bootstrap media query breakpoints */
 
 .modal-fullscreen .modal-dialog {
-  margin: 0;
-  margin-right: auto;
-  margin-left: auto;
+  margin: $horizontal-margin;
 }
 
 @media (min-width: 768px) {
