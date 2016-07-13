@@ -8,4 +8,5 @@ const homePageEvents = require('./homepage-events.js');
 $(() => {
  authEvents.addHandlers();
  homePageEvents.homePageHandlers();
+ $(".hide-nav").hide();
 });

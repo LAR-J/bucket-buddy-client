@@ -2,14 +2,19 @@
   box-sizing: border-box;
 }
 
+body {
+  font-size: $default-font;
+  background-color: $background-color;
+}
+
 div#bucket {
   width: 0;
   height: 0;
   margin: $horizontal-margin;
-  border-right: 200px solid #ffde00;
+  border-right: 200px solid $bucket-color;
   border-top: 200px solid transparent;
-  border-left: 200px solid #ffde00;
-  border-bottom: 200px solid #ffde00;
+  border-left: 200px solid $bucket-color;
+  border-bottom: 200px solid $bucket-color;
   border-radius: 200px;
 }
 
@@ -27,6 +32,48 @@ button.sign-up, button.sign-in {
   margin-left: 40%;
 }
 
+button.user-nav, button.user-sign-out {
+  background-color: $background-color;
+  border-color: $background-color;
+}
+
+button.user-nav:hover, button.user-sign-out:hover {
+  background-color: $background-color;
+  border-color: $background-color;
+}
+
+button.user-nav:active, button.user-nav:focus {
+  background-color: $background-color;
+  border-color: $background-color;
+  box-shadow: none;
+  opacity: .7;
+}
+
+button.user-sign-out:active, button.user-sign-out:focus {
+  background-color: $background-color;
+  border-color: $background-color;
+  box-shadow: none;
+  opacity: .7;
+}
+
+button.user-account {
+  color: $dark;
+  background-color: $white;
+  border-color: $white;
+}
+
+button.user-account:hover {
+  color: $dark;
+  background-color: $white;
+  border-color: $white;
+}
+
+button.user-account:active {
+  color: $dark;
+  background-color: $white;
+  border-color: $white;
+  opacity: .7;
+}
 
 input.form-control {
     display: block;
@@ -79,7 +126,7 @@ label.upload {
 
 
 
-h1, h2, h4.modal-title, h6, h6.profile-pic {
+h1, h3, h4.modal-title, h6, h6.profile-pic {
   text-align: center;
 }
 
