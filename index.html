@@ -39,7 +39,7 @@
             <div class="btn-group">
               <button type="button" class="btn btn-primary dropdown-toggle user-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></button>
               <ul class="dropdown-menu">
-               <li><button type="button" class="btn btn-primary user-account">Change Password</button></li>
+               <li><button type="button" class="btn btn-primary user-account" data-toggle="modal" data-target="#modal-change-password">Change Password</button></li>
                <li><button type="button" class="btn btn-primary user-account">Edit Profile</button></li>
                <li><button type="button" class="btn btn-primary user-account">Delete Profile</button></li>
               </ul>
@@ -124,6 +124,31 @@
         </div>
       </div>
 
+      <!-- Modal fullscreen Change Password-->
+      <div class="modal modal-fullscreen fade change-password" id="modal-change-password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel3">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <div class="form-group">
+                  <fieldset>
+                     <input type="password" class="form-control" name="passwords[old]" placeholder="Current Password">
+                     <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
+                   </fieldset>
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary close-modal">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
       <form id="create-profile">
        <div class="form-group">
@@ -193,7 +218,7 @@
            <button type="submit" class="btn btn-primary">Submit</button>
          </div>
        </form>
-       
+
        <form id="update-profile">
          <div class="form-group">
            <h6>________Update Your Profile__________</h6>
