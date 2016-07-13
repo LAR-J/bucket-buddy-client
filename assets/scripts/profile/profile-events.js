@@ -15,6 +15,51 @@ const onCreateProfile = (event) => {
   .fail(ui.createProfileFailure);
 };
 
+const onUpdateProfile = (event) => {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  console.log(data);
+  api.updateProfile(data)
+  .done(ui.updateProfileSuccess)
+  .fail(ui.updateProfileFailure);
+};
+
+// const onSignOut = (event) => {
+//   event.preventDefault();
+//   api.signOut()
+//   .done(ui.signOutSuccess)
+//   .fail(ui.failure);
+// };
+
+// const onUpdateProfile = (event) => {
+//   event.preventDefault();
+//   // let data = getFormFields(event.target);
+//   new Promise = (resolve, reject) => {
+//   let data = getFormFields(event.target);
+//     api.updateProfile(data, (error, response) => {
+//       if (error) {
+//         reject(error);
+//       } else {
+//         resolve(response);
+//       }
+//     })
+//     .then((response) => {
+//       ui.updateProfileSuccess;
+//     })
+//     .then((response) => {
+//       api.showProfile;
+//     })
+//     .catch
+//   }
+//
+//
+//   }
+//
+//   .done(ui.updateProfileSuccess)
+//   .fail(ui.updateProfileFailure);
+// };
+
+
 // const onSignIn = (event) => {
 //   event.preventDefault();
 //   let data = getFormFields(event.target);
@@ -30,22 +75,15 @@ const onCreateProfile = (event) => {
 //   .fail(ui.failure);
 // };
 //
-// const onChangePassword = (event) => {
-//   event.preventDefault();
-//   let data = getFormFields(event.target);
-//   api.changePassword(data)
-//   .done(ui.success)
-//   .fail(ui.failure);
-// };
-//
 
-const addHandlers = () => {
+
+const addProfileHandlers = () => {
   $('#create-profile').on('submit', onCreateProfile);
-  // $('#sign-in').on('submit', onSignIn);
+  $('#update-profile').on('submit', onUpdateProfile);
   // $('#sign-out').on('submit', onSignOut);
   // $('#change-password').on('submit', onChangePassword);
 };
 //
 module.exports = {
-  addHandlers,
+  addProfileHandlers,
 };

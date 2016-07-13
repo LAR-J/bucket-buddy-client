@@ -1,10 +1,11 @@
 'use strict';
 
-const app = require('../profile-app.js');
+const app = require('../app.js');
 
 const createProfile = (data) => {
+  // console.log(data);
   return $.ajax({
-    url: app.host + '/profiles/' + app.user.id,
+    url: app.host + '/profiles',
     method: "POST",
     headers: {
       Authorization: 'Token token=' + app.user.token,
@@ -12,6 +13,23 @@ const createProfile = (data) => {
     data: data,
   });
 };
+
+const updateProfile = (data) => {
+  // console.log(data);
+  return $.ajax({
+    url: app.host + '/profiles/' + app.profile.id,
+    method: "PATCH",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: data,
+  });
+};
+//GET to show profile (single profile)
+
+//PATCH to update profile
+
+//DELETE to destroy the profile
 
 // const signIn = (data) => {
 //   return $.ajax({
@@ -31,19 +49,11 @@ const createProfile = (data) => {
 //   });
 // };
 //
-// const changePassword = (data) => {
-//   return $.ajax({
-//     url: app.host + '/change-password/' + app.user.id,
-//     method: "PATCH",
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     },
-//     data: data,
-//   });
-// };
+
 
 module.exports = {
   createProfile,
+  updateProfile,
   // signIn,
   // signOut,
   // changePassword,
