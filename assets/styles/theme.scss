@@ -2,8 +2,35 @@
   box-sizing: border-box;
 }
 
+div#bucket {
+  width: 0;
+  height: 0;
+  margin: $horizontal-margin;
+  border-right: 200px solid #ffde00;
+  border-top: 200px solid transparent;
+  border-left: 200px solid #ffde00;
+  border-bottom: 200px solid #ffde00;
+  border-radius: 200px;
+}
+
+div#sign-up-btn {
+  float: left;
+  width: 50%;
+}
+
+div#sign-in-btn {
+  float: right;
+  width: 50%;
+}
+
+button.sign-up, button.sign-in {
+  margin-left: 40%;
+}
+
+
 input.form-control {
-    display: inline;
+    display: block;
+    margin: 0 auto;
     width: 20%;
 }
 
@@ -50,7 +77,9 @@ label.upload {
   filter: alpha(opacity=97);
 }
 
-h4.modal-title, h6.profile-pic {
+
+
+h1, h2, h4.modal-title, h6, h6.profile-pic {
   text-align: center;
 }
 
@@ -73,9 +102,7 @@ h4.modal-title, h6.profile-pic {
 /* .modal-fullscreen size: we use Bootstrap media query breakpoints */
 
 .modal-fullscreen .modal-dialog {
-  margin: 0;
-  margin-right: auto;
-  margin-left: auto;
+  margin: $horizontal-margin;
 }
 
 @media (min-width: 768px) {
