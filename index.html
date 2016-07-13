@@ -97,7 +97,7 @@
 
       <form id="create-profile">
         <div class="form-group">
-          <h6>Your Name</h2>
+          <h6>Your Name</h6>
           <fieldset>
             <input type="text" class="form-control" name="name[firstName]" placeholder="First Name">
             <input type="text" class="form-control" name="name[lastName]" placeholder="Last Name">
@@ -130,12 +130,12 @@
             <div class="col-md-4">
               <div class="form-group">
                 <h6>Gender</h6>
-                 <select>
+                 <select name="profile[gender]">
                    <option selected>...</option>
-                   <option name="profile[gender]" value="m">Male</option>
-                   <option name="profile[gender]" value="f">Female</option>
-                   <option name="profile[gender]" value="o">Other</option>
-                   <option name="profile[gender]" value="n">No Answer</option>
+                   <option value="m">Male</option>
+                   <option value="f">Female</option>
+                   <option value="o">Other</option>
+                   <option value="n">No Answer</option>
                  </select>
               </div>
             </div>
@@ -151,11 +151,12 @@
             <h6 class="profile-pic">Choose a Profile Picture</h6>
             <label class="btn btn-primary upload">
               Browse&hellip; <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-            <input type="file" name="profile[profilePicture]"style="display: none;">
+              <input type="file" name="profile[profilePicture]"style="display: none;">
             </label>
           </div>
-        </div>
-      </div>
+          <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
     </form>
 
     </body>
