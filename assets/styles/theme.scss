@@ -16,8 +16,24 @@ div#bucket {
   border-bottom-right-radius: 200px;
 }
 
+div#sign-up-btn {
+  float: left;
+  width: 50%;
+}
+
+div#sign-in-btn {
+  float: right;
+  width: 50%;
+}
+
+button.sign-up, button.sign-in {
+  margin-left: 40%;
+}
+
+
 input.form-control {
-    display: inline;
+    display: block;
+    margin: 0 auto;
     width: 20%;
 }
 
@@ -64,7 +80,9 @@ label.upload {
   filter: alpha(opacity=97);
 }
 
-h4.modal-title, h6.profile-pic {
+
+
+h1, h2, h4.modal-title, h6, h6.profile-pic {
   text-align: center;
 }
 
