@@ -1,6 +1,8 @@
 'use strict';
 
 const app = require('../app.js');
+const homePageEvents = require('../homepage-events.js');
+
 
 const success = (data) => {
   if (data) {
@@ -15,6 +17,7 @@ const failure = (error) => {
 };
 
 const signInSuccess = (data) => {
+  homePageEvents.hideHomePageHandler();
   app.user = data.user;
   console.log(app.user);
 };
