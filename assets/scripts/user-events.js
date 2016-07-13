@@ -8,6 +8,7 @@ const userEventHandlers = () => {
   });
   $(".change-password").on('hidden.bs.modal', function () {
     $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+    $('.change-password').find("input[type=password]").val('');
   });
 };
 
