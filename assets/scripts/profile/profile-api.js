@@ -58,6 +58,24 @@ const getProfile = () => {
   });
 };
 
+const getProfiles = () => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: app.host + '/profiles',
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+      success: (response) => {
+        resolve(response);
+      },
+      error: (error) => {
+        reject(error);
+      },
+    });
+  });
+};
+
 const deleteProfile = () => {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -81,7 +99,5 @@ module.exports = {
   updateProfile,
   getProfile,
   deleteProfile,
-  // signIn,
-  // signOut,
-  // changePassword,
+  getProfiles
 };
