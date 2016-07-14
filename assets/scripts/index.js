@@ -2,6 +2,7 @@
 
 const authEvents = require('./auth/events.js');
 const homePageEvents = require('./homepage-events.js');
+const bucketEvents = require('./bucket/events.js')
 const userEvents = require('./user-events.js');
 const profileEvents = require('./profile/profile-events.js');
 
@@ -10,6 +11,7 @@ $(() => {
 // event handlers
  authEvents.addHandlers();
  homePageEvents.homePageHandlers();
+ bucketEvents.addBucketHandlers();
  userEvents.userEventHandlers();
  profileEvents.addProfileHandlers();
 
