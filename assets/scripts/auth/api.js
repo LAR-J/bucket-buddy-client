@@ -20,7 +20,7 @@ const signIn = (data) => {
 
 const signOut = () => {
   return $.ajax({
-    url: app.host + '/sign-out/' + app.user._id,
+    url: app.host + '/sign-out/' + app.user.id,
     method: "DELETE",
     headers: {
       Authorization: 'Token token=' + app.user.token,
