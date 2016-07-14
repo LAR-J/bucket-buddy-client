@@ -3,6 +3,7 @@
 const app = require('../app.js');
 const api = require('./bucket-api');
 const bucketTemplate = require('./../templates/view-buckets.handlebars');
+const updateBucketTemplate = require('./../templates/update-bucket-form.handlebars');
 //include handlebars?
 
 const onDeleteBucket = (event) => {
@@ -10,21 +11,8 @@ const onDeleteBucket = (event) => {
   let buttonId = $(event.target).attr('data-id');
   api.deleteBucket(buttonId)
   .then(deleteBucketSuccess)
-  // .then(ui.showUserBuckets)
-  // .then(ui.showUserBucketsSuccess)
   .catch(error => console.error(error))
 };
-
-const onUpdateBucket = (event) => {
-  event.preventDefault();
-  let buttonId = $(event.target).attr('data-id');
-  let data = getFormFields(event.target);
-  api.updateBucket(data, buttonId)
-  .then(updateBucketSuccess)
-  .catch(error => console.error(error))
-};
-
-
 
 const createBucketSuccess = (data) => {
   if (data) {
@@ -32,7 +20,6 @@ const createBucketSuccess = (data) => {
   } else {
    console.log('Success');
   }
-  // data.bucket.tags = data.bucket.tags.split(',');
   app.bucket = data.bucket;
 };
 
@@ -46,6 +33,8 @@ const updateBucketFailure = (error) => {
 
 const showBucketSuccess = (data) => {
   app.bucket = data.bucket;
+  console.log(app.bucket);
+  $('#update-bucket-form').html(updateBucketTemplate(app.bucket));
 
   //handlebars?
 };
@@ -56,12 +45,6 @@ const showBucketFailure = (error) => {
 
 const showUserBucketsSuccess = (data) => {
   $('#user-buckets').html(bucketTemplate(data));
-  $('.delete-bucket-button').on('click', onDeleteBucket);
-  $('.update-bucket-button').on('click', onUpdateBucket);
-
-//  $('.bucket-display').on('submit', onEditBucket);
-//handlebars?
-//app = data??
 };
 
 const showAllBucketsFailure = (error) => {
@@ -74,7 +57,9 @@ const deleteBucketSuccess = () => {
 };
 
 const updateBucketSuccess = (data) => {
-  app.bucket = data.bucket;
+  $(".modal-fullscreen.update-bucket").on('hidden.bs.modal', function () {
+      $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+    });
 };
 
 const deleteBucketFailure = (error) => {

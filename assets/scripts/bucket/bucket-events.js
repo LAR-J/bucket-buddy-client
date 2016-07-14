@@ -37,34 +37,39 @@ const onShowBucket = () => {
 const onUserBuckets = () => {
   return api.showUserBuckets()
     .then(ui.showUserBucketsSuccess)
+    .then(() => {
+      $('.delete-bucket-button').on('click', ui.onDeleteBucket);
+      $('.edit-bucket-button').on('click', onEditBucket);
+    })
     .catch(error => console.error(error))
 };
 
-// const onUpdateBucket = (event) => {
-//   event.preventDefault();
-//   let data = getFormFields(event.target);
-//   api.updateBucket(data)
-//   .then(onShowBucket)
-//   .catch(error => console.error(error))
-// };
+const onUpdateBucket = (event) => {
+  event.preventDefault();
+  let buttonId = $(event.target).find('.save-bucket-button').attr('data-id');
+  console.log(buttonId);
+  let data = getFormFields(event.target);
+  api.updateBucket(data, buttonId)
+  .then(ui.updateBucketSuccess)
+  .catch(error => console.error(error))
+};
 
-// const onDeleteBucket = (event) => {
-//   event.preventDefault();
-//   api.deleteBucket()
-//   .then(ui.deleteBucketSuccess)
-//   // .then(ui.showUserBuckets)
-//   // .then(ui.showUserBucketsSuccess)
-//   .catch(error => console.error(error))
-// };
+const onEditBucket = (event) => {
+    event.preventDefault();
+    let buttonId = $(event.target).attr('data-id');
+    console.log(buttonId);
+    api.showBucket(buttonId)  //send buttonID for get request
+    .then(ui.showBucketSuccess)
+    .then(() => {
+      $("#submit-bucket-edits").on("submit", onUpdateBucket)
+    })
+    .catch(error => console.error(error))
+};
 
 const addBucketHandlers = () => {
   $('#create-bucket-form').on('submit', onCreateBucket);
-  // $('#update-bucket').on('submit', onUpdateBucket);
-  // $('.delete-bucket-button').on('submit', onDeleteBucket);
   $('#open-my-buckets').on('click', bucketPageHandlers);
   $('#open-my-buckets').on('click', onUserBuckets);
-  //click handler for show all user buckets
-  //click handler for show currentUser's buckets
 };
 //
 module.exports = {

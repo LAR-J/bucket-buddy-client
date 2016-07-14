@@ -40,10 +40,10 @@ const updateBucket = (data, id) => {
   });
 };
 
-const showBucket = () => {
+const showBucket = (id) => {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: app.host + '/buckets/' + app.bucket.id,
+      url: app.host + '/buckets/' + id,
       method: 'GET',
       headers: {
         Authorization: 'Token token=' + app.user.token,
