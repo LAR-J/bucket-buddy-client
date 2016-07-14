@@ -21,6 +21,8 @@ const createBucketSuccess = (data) => {
    console.log('Success');
   }
   app.bucket = data.bucket;
+    $(".modal-fullscreen.create-bucket").modal('hide');
+
 };
 
 const createBucketFailure = (error) => {

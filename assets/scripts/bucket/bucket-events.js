@@ -25,6 +25,7 @@ const onCreateBucket = (event) => {
   console.log(data.bucket.tags);
   api.createBucket(data)
   .then(ui.createBucketSuccess)
+  .then(onUserBuckets)
   .catch(error => console.error(error))
 };
 
@@ -51,6 +52,7 @@ const onUpdateBucket = (event) => {
   let data = getFormFields(event.target);
   api.updateBucket(data, buttonId)
   .then(ui.updateBucketSuccess)
+  .then(onUserBuckets)
   .catch(error => console.error(error))
 };
 
