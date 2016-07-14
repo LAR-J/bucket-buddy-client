@@ -3,12 +3,16 @@
 const authEvents = require('./auth/events.js');
 const homePageEvents = require('./homepage-events.js');
 const userEvents = require('./user-events.js');
-
+const profileEvents = require('./profile/profile-events.js');
 
 // On document ready
 $(() => {
+// event handlers
  authEvents.addHandlers();
  homePageEvents.homePageHandlers();
  userEvents.userEventHandlers();
- $(".hide-nav").hide();
+ profileEvents.addProfileHandlers();
+
+ // auto hide elements on page ready
+  $(".hide-nav").hide();
 });
