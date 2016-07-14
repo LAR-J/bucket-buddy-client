@@ -34,32 +34,35 @@ const onShowBucket = () => {
     .catch(error => console.error(error))
 };
 
-const onShowAllBuckets = () => {
-  return api.showAllBuckets()
-    .then(ui.showAllBucketsSuccess)
+const onUserBuckets = () => {
+  return api.showUserBuckets()
+    .then(ui.showUserBucketsSuccess)
     .catch(error => console.error(error))
 };
 
-const onUpdateBucket = (event) => {
-  event.preventDefault();
-  let data = getFormFields(event.target);
-  api.updateBucket(data)
-  .then(onShowBucket)
-  .catch(error => console.error(error))
-};
+// const onUpdateBucket = (event) => {
+//   event.preventDefault();
+//   let data = getFormFields(event.target);
+//   api.updateBucket(data)
+//   .then(onShowBucket)
+//   .catch(error => console.error(error))
+// };
 
-const onDeleteBucket = (event) => {
-  event.preventDefault();
-  api.deleteBucket()
-  .done(ui.deleteBucketSuccess)
-  .fail(ui.deleteBucketFailure);
-};
+// const onDeleteBucket = (event) => {
+//   event.preventDefault();
+//   api.deleteBucket()
+//   .then(ui.deleteBucketSuccess)
+//   // .then(ui.showUserBuckets)
+//   // .then(ui.showUserBucketsSuccess)
+//   .catch(error => console.error(error))
+// };
 
 const addBucketHandlers = () => {
   $('#create-bucket-form').on('submit', onCreateBucket);
-  $('#update-bucket').on('submit', onUpdateBucket);
-  $('#delete-bucket').on('click', onDeleteBucket);
+  // $('#update-bucket').on('submit', onUpdateBucket);
+  // $('.delete-bucket-button').on('submit', onDeleteBucket);
   $('#open-my-buckets').on('click', bucketPageHandlers);
+  $('#open-my-buckets').on('click', onUserBuckets);
   //click handler for show all user buckets
   //click handler for show currentUser's buckets
 };
