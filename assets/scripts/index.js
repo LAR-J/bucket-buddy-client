@@ -2,14 +2,19 @@
 
 const authEvents = require('./auth/events.js');
 const homePageEvents = require('./homepage-events.js');
+const bucketEvents = require('./bucket/events.js')
+const userEvents = require('./user-events.js');
 const profileEvents = require('./profile/profile-events.js');
 
 // On document ready
 $(() => {
+// event handlers
  authEvents.addHandlers();
  homePageEvents.homePageHandlers();
+ bucketEvents.addBucketHandlers();
+ userEvents.userEventHandlers();
  profileEvents.addProfileHandlers();
 
-//hides functionality that should only be shown upon login
- $(".hide-nav").hide();
+ // auto hide elements on page ready
+  $(".hide-nav").hide();
 });
