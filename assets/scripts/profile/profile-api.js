@@ -3,19 +3,25 @@
 const app = require('../app.js');
 
 const createProfile = (data) => {
-  // console.log(data);
-  return $.ajax({
-    url: app.host + '/profiles',
-    method: "POST",
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-    data: data,
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: app.host + '/profiles',
+      method: "POST",
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+      data,
+      success: (response) => {
+        resolve(response);
+      },
+      error: (error) => {
+        reject(error);
+      },
+    });
   });
 };
 
 const updateProfile = (data) => {
-  // console.log(data);
   return new Promise((resolve, reject) => {
     $.ajax({
       url: app.host + '/profiles/' + app.profile.id,
@@ -34,8 +40,7 @@ const updateProfile = (data) => {
   });
 };
 
-const showProfile = () => {
-//  console.log(app);
+const getProfile = () => {
   return new Promise((resolve, reject) => {
     $.ajax({
       url: app.host + '/profiles/' + app.profile.id,
@@ -53,37 +58,28 @@ const showProfile = () => {
   });
 };
 
-
-//GET to show profile (single profile)
-
-//PATCH to update profile
-
-//DELETE to destroy the profile
-
-// const signIn = (data) => {
-//   return $.ajax({
-//     url: app.host + '/sign-in',
-//     method: "POST",
-//     data: data,
-//   });
-// };
-//
 const deleteProfile = () => {
-  return $.ajax({
-    url: app.host + '/profiles/' + app.profile.id,
-    method: "DELETE",
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: app.host + '/profiles/' + app.profile.id,
+      method: "DELETE",
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+      success: (response) => {
+        resolve(response);
+      },
+      error: (error) => {
+        reject(error);
+      },
+    });
   });
 };
-
-
 
 module.exports = {
   createProfile,
   updateProfile,
-  showProfile,
+  getProfile,
   deleteProfile,
   // signIn,
   // signOut,
