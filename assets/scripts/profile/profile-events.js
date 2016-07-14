@@ -38,13 +38,23 @@ const onUpdateProfile = (event) => {
   let data = getFormFields(event.target);
   return api.updateProfile(data)
   .then(onGetProfile)
+  .then(ui.updateProfileSuccess)
   .catch(error => console.error(error))
 };
+
+const showUpdateProfile = (event) => {
+  event.preventDefault();
+  return api.getProfiles()
+  .then(ui.showUpdateSuccess)
+  .catch(error => console.error(error))
+}
 
 const addProfileHandlers = () => {
   $('#create-profile').on('submit', onCreateProfile);
   $('#update-profile').on('submit', onUpdateProfile);
   $('#delete-profile').on('click', onDeleteProfile);
+  $('#update-profile-nav').on('click', showUpdateProfile);
+  $('#view-profile-nav')
 };
 
 module.exports = {
