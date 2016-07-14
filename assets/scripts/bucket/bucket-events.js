@@ -5,12 +5,27 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./bucket-api');
 const ui = require('./bucket-ui');
 
+const bucketPageHandlers = () => {
+  $("#create-new-bucket").show();
+  $(".modal-fullscreen.create-bucket").on('show.bs.modal', function () {
+  setTimeout( function() {
+    $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+  }, 0);
+  });
+$(".modal-fullscreen.create-bucket").on('hidden.bs.modal', function () {
+    $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+  });
+}
+
 const onCreateBucket = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
+//  console.log(data);
+  data.bucket.tags = data.bucket.tags.split(',');
+  console.log(data.bucket.tags);
   api.createBucket(data)
-  .done(ui.createBucketSuccess)
-  .fail(ui.createBucketFailure);
+  .then(ui.createBucketSuccess)
+  .catch(error => console.error(error))
 };
 
 const onShowBucket = () => {
@@ -41,10 +56,10 @@ const onDeleteBucket = (event) => {
 };
 
 const addBucketHandlers = () => {
-  $('#create-bucket').on('submit', onCreateBucket);
+  $('#create-bucket-form').on('submit', onCreateBucket);
   $('#update-bucket').on('submit', onUpdateBucket);
   $('#delete-bucket').on('click', onDeleteBucket);
-
+  $('#open-my-buckets').on('click', bucketPageHandlers);
   //click handler for show all user buckets
   //click handler for show currentUser's buckets
 };

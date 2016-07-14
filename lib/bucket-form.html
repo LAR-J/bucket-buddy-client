@@ -1,33 +1,83 @@
-<form>
-  <fieldset class="form-group">
-    <label for="title">Title</label>
-    <input type="text" name="bucket[title]" class="form-control" id="title">
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="selectcategory">Category</label>
-    <select name="bucket[category]" class="form-control" id="selectcategory">
-      <option>Pick a category</option>
-      <option>Outdoor</option>
-      <option>Sport</option>
-      <option>Travel</option>
-      <option>Work</option>
-      <option>Family</option>
-      <option>Food</option>
-      <option>Culture</option>
-      <option>Entertainment</option>
-      <option>Shopping</option>
-    </select>
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="description">Description</label>
-    <input type="text" name="bucket[description]" class="form-control" id="description">
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="link">Link to website</label>
-    <input type="text" name="bucket[link]" class="form-control" id="link">
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="deadline">Age you want to achieve this by</label>
-    <input type="number" name="bucket[deadline]" class="form-control" id="deadline">
-  </fieldset>
-</form>
+<div class="modal modal-fullscreen fade create-bucket-modal" id="modal-fullscreen-create-bucket" tabindex="-1" role="dialog" aria-labelledby="myModalLabelCreateBucket" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabelCreateBucket">Create a new bucket!</h4>
+      </div>
+      <div class="modal-body">
+        <form id="create-bucket-form">
+          <fieldset class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="bucket[title]" class="form-control" id="title">
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="selectcategory">Category</label>
+            <select name="bucket[category]" class="form-control" id="selectcategory">
+              <option>Pick a category</option>
+              <option>Culture</option>
+              <option>Entertainment</option>
+              <option>Family</option>
+              <option>Food</option>
+              <option>Outdoor</option>
+              <option>Shopping</option>
+              <option>Sport</option>
+              <option>Travel</option>
+              <option>Work</option>
+            </select>
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="description">Description</label>
+            <input type="text" name="bucket[description]" class="form-control" id="description">
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="link">Link to website</label>
+            <input type="text" name="bucket[link]" class="form-control" id="link">
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="deadline">Age you want to achieve this by</label>
+            <input type="number" name="bucket[deadline]" class="form-control" id="deadline">
+          </fieldset>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary close-modal">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal modal-fullscreen fade sign-in" id="modal-fullscreen-sign-in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel2">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form id="sign-in">
+          <div class="form-group">
+            <h6>Email</h6>
+             <fieldset>
+               <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+            </fieldset>
+          </div>
+          <hr>
+          <div class="form-group">
+            <h6>Password</h6>
+            <fieldset>
+               <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+             </fieldset>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary close-modal">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

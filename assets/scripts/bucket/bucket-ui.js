@@ -9,6 +9,7 @@ const createBucketSuccess = (data) => {
   } else {
    console.log('Success');
   }
+  // data.bucket.tags = data.bucket.tags.split(',');
   app.bucket = data.bucket;
 };
 
