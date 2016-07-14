@@ -31,7 +31,8 @@
       tags: <input type="text" name="bucket[tags]" class="form-control" value="{{tags}}" />
     </div>
   </fieldset>
-    <div class="bucketEditDeleteButtons">
-      <button type="submit" class="save-bucket-button btn btn-default" id="{{@index}}" data-id="{{_id}}">Save Changes</button>
+    <div class="bucketEditDeleteButtons modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="submit" class="save-bucket-button btn btn-default close-modal"  id="{{@index}}" data-id="{{_id}}">Save Changes</button>
     </div>
 </form>

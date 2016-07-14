@@ -38,7 +38,7 @@ const onUserBuckets = () => {
   return api.showUserBuckets()
     .then(ui.showUserBucketsSuccess)
     .then(() => {
-      $('.delete-bucket-button').on('click', ui.onDeleteBucket);
+      $('.delete-bucket-button').on('click', onDeleteBucket);
       $('.edit-bucket-button').on('click', onEditBucket);
     })
     .catch(error => console.error(error))
@@ -64,6 +64,15 @@ const onEditBucket = (event) => {
       $("#submit-bucket-edits").on("submit", onUpdateBucket)
     })
     .catch(error => console.error(error))
+};
+
+const onDeleteBucket = (event) => {
+  event.preventDefault();
+  let buttonId = $(event.target).attr('data-id');
+  api.deleteBucket(buttonId)
+  .then(ui.deleteBucketSuccess)
+  .then(onUserBuckets)
+  .catch(error => console.error(error))
 };
 
 const addBucketHandlers = () => {
