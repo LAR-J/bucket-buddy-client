@@ -6,11 +6,6 @@ const createProfileSuccess = (data) => {
   app.profile = data.profile;
 };
 
-// const updateProfileSuccess = () => {
-// //  app.profile = data.profile;
-// //  console.log('update profile success');
-// };
-
 const getProfileSuccess = (data) => {
   app.profile = data.profile;
 };
@@ -22,9 +17,6 @@ const deleteProfileSuccess = () => {
 
 module.exports = {
   createProfileSuccess,
-  // updateProfileSuccess,
   getProfileSuccess,
   deleteProfileSuccess,
-  // signInSuccess,
-  // signOutSuccess
 };
