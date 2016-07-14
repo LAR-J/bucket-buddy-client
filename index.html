@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Bucket Buddy</title>
-      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
+  <head>
+    <title>Bucket Buddy</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+  <body class="container-fluid">
+    <div class="hide-homescreen display-homescreen">
       <h1>Bucket Buddy</h1>
-      <h2>Make Your Dreams Come True</h2>
+      <h3>It's Adventure Time</h3>
 
       <div id="bucket">
       </div>
@@ -26,95 +27,166 @@
           Sign-In
         </button>
       </div>
-
-      <!-- Modal fullscreen Sign Up-->
-      <div class="modal modal-fullscreen fade sign-up" id="modal-fullscreen-sign-up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-              <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
-            </div>
-            <div class="modal-body">
-              <form id="sign-up">
-                <div class="form-group">
-                  <h6>Email</h6>
-                   <fieldset>
-                     <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
-                  </fieldset>
-                </div>
-                <hr>
-                <div class="form-group">
-                  <h6>Password</h6>
-                  <fieldset>
-                     <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
-                     <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                   </fieldset>
-                </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary close-modal">Submit</button>
-            </div>
-          </form>
-          </div>
-        </div>
-      </div>
     </div>
 
-        <!-- Modal fullscreen Sign In-->
-        <div class="modal modal-fullscreen fade sign-in" id="modal-fullscreen-sign-in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel2">Sign In</h4>
+    <!-- Vertical Nav Bar on Sign-In -->
+    <nav class="hide-nav display-nav">
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle user-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+             <li><button type="button" class="btn btn-primary user-account" data-toggle="modal" data-target="#modal-create-profile">Create Profile</button></li>
+             <li><button type="button" class="btn btn-primary user-account" data-toggle="modal" data-target="#modal-update-profile">Update Profile</button></li>
+            </ul>
+          </div>
+        </li>
+        <li role="presentation"><button type="button" class="btn btn-primary user-nav">Browse Buckets</button></li>
+        <li role="presentation"><button type="button" class="btn btn-primary user-nav">My Buckets</button></li>
+        <li role="presentation">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle user-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+             <li><button type="button" class="btn btn-primary user-account" data-toggle="modal" data-target="#modal-change-password">Change Password</button></li>
+             <li><button type="button" class="btn btn-primary user-account">Delete Profile</button></li>
+            </ul>
+          </div>
+        </li>
+        <form id="sign-out">
+           <fieldset>
+             <button type="submit" class="btn btn-primary user-sign-out">Sign Out</button>
+           </fieldset>
+        </form>
+      </ul>
+    </nav>
+
+    <!-- View User Profile (rendered w/ Handlebars) -->
+    <div id="user-profile">
+    </div>
+
+    <!-- Browse Buckets - View All Bucket Items (rendered w/ Handlebars) -->
+    <div id="all-buckets">
+    </div>
+
+    <!-- My Buckets - View User's Bucket Items (rendered w/ Handlebars) -->
+    <div id="user-buckets">
+    </div>
+
+    <!-- Modal fullscreen Sign Up -->
+    <div class="modal modal-fullscreen fade sign-up" id="modal-fullscreen-sign-up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+          </div>
+          <div class="modal-body">
+            <form id="sign-up">
+              <div class="form-group">
+                <h6>Email</h6>
+                 <fieldset>
+                   <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+                </fieldset>
               </div>
-              <div class="modal-body">
-                <form id="sign-in">
-                  <div class="form-group">
-                    <h6>Email</h6>
-                     <fieldset>
-                       <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
-                    </fieldset>
-                  </div>
-                  <hr>
-                  <div class="form-group">
-                    <h6>Password</h6>
-                    <fieldset>
-                       <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
-                     </fieldset>
-                  </div>
+              <hr>
+              <div class="form-group">
+                <h6>Password</h6>
+                <fieldset>
+                   <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+                   <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                 </fieldset>
+              </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary close-modal">Submit</button>
               </div>
             </form>
-            </div>
           </div>
         </div>
       </div>
+    </div>
 
+    <!-- Modal fullscreen Sign In-->
+    <div class="modal modal-fullscreen fade sign-in" id="modal-fullscreen-sign-in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel2">Sign In</h4>
+          </div>
+          <div class="modal-body">
+            <form id="sign-in">
+              <div class="form-group">
+                <h6>Email</h6>
+                 <fieldset>
+                   <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+                </fieldset>
+              </div>
+              <hr>
+              <div class="form-group">
+                <h6>Password</h6>
+                <fieldset>
+                   <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+                 </fieldset>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary close-modal">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Modal fullscreen Change Password-->
+    <div class="modal modal-fullscreen fade change-password" id="modal-change-password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel3">Change Password</h4>
+          </div>
+          <div class="modal-body">
+            <form id="change-password">
+              <div class="form-group">
+                <fieldset>
+                   <input type="password" class="form-control" name="passwords[old]" placeholder="Current Password">
+                   <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
+                 </fieldset>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary close-modal">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <!-- <div class="form-group">
-          <h6>Your Name</h2>
+    <!-- CREATE PROFILE FORM -->
+    <section class="create-profile">
+      <form id="create-profile">
+        <div class="form-group">
+          <h6>Your Name</h6>
           <fieldset>
-            <input type="text" class="form-control" name="name[firstName]" placeholder="First Name">
-            <input type="text" class="form-control" name="name[lastName]" placeholder="Last Name">
+            <input type="text" class="form-control" name="profile[name[firstName]]" placeholder="First Name">
+            <input type="text" class="form-control" name="profile[name[lastName]]" placeholder="Last Name">
           </fieldset>
         </div>
         <hr>
         <div class="form-group">
           <h6>Username</h6>
           <fieldset>
-            <input type="text" class="form-control" name="username" placeholder="Enter Username" required>
+            <input type="text" class="form-control" name="profile[username]" placeholder="Enter Username" required>
           </fieldset>
         </div>
         <hr>
         <div class="form-group">
           <h6>About Me</h6>
           <fieldset>
-            <textarea class="form-control about-me" id="about-me-text"></textarea>
+            <textarea class="form-control about-me" name="profile[aboutMe]"></textarea>
           </fieldset>
         </div>
         <hr>
@@ -123,36 +195,124 @@
               <div class="form-group">
                 <h6>Location</h6>
                 <fieldset>
-                  <input type="text" class="form-control three-column" name="city" placeholder="City">
+                  <input type="text" class="form-control three-column" name="profile[city]" placeholder="City">
                 </fieldset>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <h6>Gender</h6>
-                 <label><input type="checkbox">Male</label>
-                 <label><input type="checkbox">Female</label>
-                 <label><input type="checkbox">Other</label>
-                 <label><input type="checkbox">No Answer</label>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <h6>Date of Birth</h6>
-                <input class="form-control three-column" placeholder="Date of Birth" type="date" name="dob">
-              </div>
+                <fieldset>
+                <select name="profile[gender]">
+                  <option value="n">No Answer</option>
+                  <option value="f">Female</option>
+                  <option value="m">Male</option>
+                  <option value="o">Other</option>
+                </select>
+              </fieldset>
             </div>
           </div>
-          <hr>
-          <div class="form-group">
-            <h6 class="profile-pic">Choose a Profile Picture</h6>
-            <label class="btn btn-primary upload">
-              Browse&hellip; <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-            <input type="file" style="display: none;">
-            </label>
+          <div class="col-md-4">
+            <div class="form-group">
+              <h6>Date of Birth</h6>
+              <fieldset>
+                <input class="form-control three-column" name="profile[dob]" placeholder="Date of Birth" type="date">
+              </fieldset>
+            </div>
           </div>
         </div>
-      </div> -->
+        <hr>
+        <div class="form-group">
+          <h6 class="profile-pic">Choose a Profile Picture</h6>
+            <fieldset>
+              <label class="btn btn-primary upload">
+                 Browse&hellip; <span class="glyphicon glyphicon-picture" aria-hidden="true">Picture</span>
+                <input type="file" name="profile[profilePicture]"style="display: none;">
+              </label>
+            </fieldset>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </section>
 
-    </body>
+<!-- UPDATE PROFILE FORM -->
+    <section class="update-profile">
+      <form id="update-profile">
+        <div class="form-group">
+          <h6>________Update Your Profile__________</h6>
+          <h6>Your Name</h6>
+          <fieldset>
+            <input type="text" class="form-control" name="profile[name[firstName]]" placeholder="First Name">
+            <input type="text" class="form-control" name="profile[name[lastName]]" placeholder="Last Name">
+          </fieldset>
+        </div>
+        <hr>
+        <div class="form-group">
+          <h6>Username</h6>
+          <fieldset>
+            <input type="text" class="form-control" name="profile[username]" placeholder="Enter Username" required>
+          </fieldset>
+        </div>
+        <hr>
+        <div class="form-group">
+          <h6>About Me</h6>
+          <fieldset>
+            <textarea class="form-control about-me" name="profile[aboutMe]"></textarea>
+          </fieldset>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <h6>Location</h6>
+              <fieldset>
+                <input type="text" class="form-control three-column" name="profile[city]" placeholder="City">
+              </fieldset>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <h6>Gender</h6>
+              <fieldset>
+                <select name="profile[gender]">
+                  <option value="n">No Answer</option>
+                  <option value="f">Female</option>
+                  <option value="m">Male</option>
+                  <option value="o">Other</option>
+                </select>
+              </fieldset>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <h6>Date of Birth</h6>
+              <fieldset>
+                <input class="form-control three-column" name="profile[dob]" placeholder="Date of Birth" type="date">
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="form-group">
+          <h6 class="profile-pic">Choose a Profile Picture</h6>
+            <fieldset>
+              <label class="btn btn-primary upload">
+               Browse&hellip; <span class="glyphicon glyphicon-picture" aria-hidden="true">Picture</span>
+              <input type="file" name="profile[profilePicture]"style="display: none;">
+            </label>
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </section>
+
+ <!--DELETE PROFILE BUTTON -->
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary" id="delete-profile" value="delete profile">
+    </div>
+  </body>
 </html>
