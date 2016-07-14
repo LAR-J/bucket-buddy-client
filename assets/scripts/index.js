@@ -8,6 +8,8 @@ const profileEvents = require('./profile/profile-events.js');
 $(() => {
  authEvents.addHandlers();
  homePageEvents.homePageHandlers();
- $(".hide-nav").hide();
  profileEvents.addProfileHandlers();
+
+//hides functionality that should only be shown upon login
+ $(".hide-nav").hide();
 });
