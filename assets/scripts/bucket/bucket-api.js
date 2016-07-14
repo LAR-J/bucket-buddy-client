@@ -21,10 +21,10 @@ const createBucket = (data) => {
   });
 };
 
-const updateBucket = (data) => {
+const updateBucket = (data, id) => {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: app.host + '/buckets/' + app.bucket.id,
+      url: app.host + '/buckets/' + id,
       method: "PATCH",
       headers: {
         Authorization: 'Token token=' + app.user.token,
@@ -40,10 +40,10 @@ const updateBucket = (data) => {
   });
 };
 
-const showBucket = () => {
+const showBucket = (id) => {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: app.host + '/buckets/' + app.bucket.id,
+      url: app.host + '/buckets/' + id,
       method: 'GET',
       headers: {
         Authorization: 'Token token=' + app.user.token,
@@ -58,11 +58,14 @@ const showBucket = () => {
   });
 };
 
-const showAllBuckets = () => {
+const showUserBuckets = () => {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: app.host + '/buckets',
+      url: app.host + '/userbuckets',
       method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
       success: (response) => {
         resolve(response);
       },
@@ -73,10 +76,10 @@ const showAllBuckets = () => {
   });
 };
 
-const deleteBucket = () => {
+const deleteBucket = (id) => {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: app.host + '/buckets/' + app.bucket.id,
+      url: app.host + '/buckets/' + id,
       method: "DELETE",
       headers: {
         Authorization: 'Token token=' + app.user.token,
@@ -95,6 +98,6 @@ module.exports = {
   createBucket,
   updateBucket,
   showBucket,
-  showAllBuckets,
+  showUserBuckets,
   deleteBucket,
 };

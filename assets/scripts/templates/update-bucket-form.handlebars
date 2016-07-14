@@ -1,0 +1,38 @@
+<form id="submit-bucket-edits">
+  <fieldset>
+    <div>
+      title: <input class="form-control" type="text" name=bucket[title] placeholder="Title of Bucket" value="{{title}}">
+    </div>
+    <div>
+      description: <input class="form-control" type="text" name=bucket[description] placeholder="Description of Bucket" value="{{description}}" />
+    </div>
+    <div>
+      category: <label for="selectcategory">Category</label>
+      <select name="bucket[category]" class="form-control" id="selectcategory">
+        <option>Pick a category</option>
+        <option value="culture">Culture</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="family">Family</option>
+        <option value="food">Food</option>
+        <option value="outdoor">Outdoor</option>
+        <option value="shopping">Shopping</option>
+        <option value="sport">Sport</option>
+        <option value="travel">Travel</option>
+        <option value="work">Work</option>
+      </select>
+    </div>
+    <div>
+      link to website: <input type="text" name="bucket[link]" class="form-control" value="{{link}}" />
+    </div>
+    <div>
+      age you want to acheive this by: <input type="number" name="bucket[deadline]" class="form-control" value="{{deadline}}" />
+    </div>
+    <div>
+      tags: <input type="text" name="bucket[tags]" class="form-control" value="{{tags}}" />
+    </div>
+  </fieldset>
+    <div class="bucketEditDeleteButtons modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="submit" class="save-bucket-button btn btn-default close-modal"  id="{{@index}}" data-id="{{_id}}">Save Changes</button>
+    </div>
+</form>

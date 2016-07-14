@@ -17,4 +17,5 @@ $(() => {
 
  // auto hide elements on page ready
   $(".hide-nav").hide();
+  $("#create-new-bucket").hide();
 });
