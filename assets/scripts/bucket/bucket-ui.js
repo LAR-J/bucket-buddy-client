@@ -4,7 +4,7 @@ const app = require('../app.js');
 const api = require('./bucket-api');
 const bucketTemplate = require('./../templates/view-buckets.handlebars');
 const updateBucketTemplate = require('./../templates/update-bucket-form.handlebars');
-const allBucketsTemplate = require('./../templates/view-buckets.handlebars');
+const allBucketsTemplate = require('./../templates/view-all-bucket.handlebars');
 
 const createBucketSuccess = (data) => {
   if (data) {
