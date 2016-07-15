@@ -18,7 +18,7 @@ As developers, we want to make a single page app that seamlessly directs a user 
 
 ## Wireframes
 
-![bucket list home page](https://cloud.githubusercontent.com/assets/16338632/16863231/9022fc8c-4a1e-11e6-9948-ceb352a841a9.png 
+![bucket list home page](https://cloud.githubusercontent.com/assets/16338632/16891106/4645e368-4ac3-11e6-847e-ee4871a97d6b.png)
 
 ![adding a new bucket](https://cloud.githubusercontent.com/assets/16338632/16863234/9fa2b634-4a1e-11e6-974d-48454bf141a5.png)
 
