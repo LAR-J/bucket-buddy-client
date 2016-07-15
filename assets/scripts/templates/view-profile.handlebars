@@ -1,8 +1,35 @@
-<h3>{{username}}</h3>
-<h4>{{name.firstName}} {{name.lastName}}</h4>
-<p>{{aboutMe}}</p>
-<ul>
-    <li>Age: {{age}}</li>
-    <li>Gender: {{gender}}</li>
-    <li>City: {{city}}</li>
-</ul>
+<div class="table-responsive">
+  <table class="table table-condensed table-bordered profile-table">
+    <tr>
+      <td><h3 class="profile-username">
+        {{username}}
+      </h3>
+      </td>
+    </tr>
+    <tr class="justify-items">
+      <td style="padding: 0 50px;">
+        <h4>{{name.firstName}} {{name.lastName}}</h4>
+      </td>
+    </tr>
+    <tr class="justify-items">
+      <td style="padding-left: 50px; padding-right: 50px;">
+        <p>About me: {{aboutMe}}</p>
+      </td>
+    </tr>
+    <tr class="justify-items">
+      <td style="padding-left: 50px; padding-right: 50px;">
+        Age: {{age}}
+      </td>
+    </tr>
+    <tr class="justify-items">
+      <td style="padding-left: 50px; padding-right: 50px;">
+        Gender: {{gender}}
+      </td>
+    </tr>
+    <tr class="justify-items">
+      <td style="padding-left: 50px; padding-right: 50px;">
+        City: {{city}}
+      </td>
+    </tr>
+  </table>
+</div>
