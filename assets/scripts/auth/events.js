@@ -9,9 +9,13 @@ const ui = require('./ui');
 const onSignUp = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
-  api.signUp(data)
-  .done(ui.success)
-  .fail(ui.failure);
+  if(data.credentials.password) {
+    api.signUp(data)
+  .done(ui.signUpSuccess)
+  .fail(ui.signUpFailure);
+} else {
+  $("#sign-up-message").text("Please enter a password!");
+}
 };
 
 const onSignIn = (event) => {
@@ -19,7 +23,7 @@ const onSignIn = (event) => {
   let data = getFormFields(event.target);
   api.signIn(data)
   .done(ui.signInSuccess)
-  .fail(ui.failure);
+  .fail(ui.signInFailure);
 };
 
 const onSignOut = (event) => {
