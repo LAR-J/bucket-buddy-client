@@ -53,6 +53,7 @@ const signOutSuccess = () => {
   $(".display-homescreen").show();
   $(".display-nav").show();
   $(".hide-nav").hide();
+  $("#user-profile").html('');
 
 };
 
