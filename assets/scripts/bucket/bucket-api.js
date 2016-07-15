@@ -76,6 +76,21 @@ const showUserBuckets = () => {
   });
 };
 
+const showAllUserBuckets = () => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: app.host + '/allbuckets',
+      method: 'GET',
+      success: (response) => {
+        resolve(response);
+      },
+      error: (error) => {
+        reject(error);
+      },
+    });
+  });
+};
+
 const deleteBucket = (id) => {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -99,5 +114,6 @@ module.exports = {
   updateBucket,
   showBucket,
   showUserBuckets,
+  showAllUserBuckets,
   deleteBucket,
 };

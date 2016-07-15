@@ -45,6 +45,12 @@ const onUserBuckets = () => {
     .catch(error => console.error(error))
 };
 
+const onAllUserBuckets = () => {
+  return api.showAllUserBuckets()
+    .then(ui.showAllBucketsSuccess)
+    .catch(error => console.error(error))
+};
+
 const onUpdateBucket = (event) => {
   event.preventDefault();
   let buttonId = $(event.target).find('.save-bucket-button').attr('data-id');
@@ -81,6 +87,7 @@ const addBucketHandlers = () => {
   $('#create-bucket-form').on('submit', onCreateBucket);
   $('#open-my-buckets').on('click', bucketPageHandlers);
   $('#open-my-buckets').on('click', onUserBuckets);
+  $('#view-all-user-buckets').on('click', onAllUserBuckets);
 };
 //
 module.exports = {
