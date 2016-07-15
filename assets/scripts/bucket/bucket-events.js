@@ -15,7 +15,7 @@ const bucketPageHandlers = () => {
 $(".modal-fullscreen.create-bucket").on('hidden.bs.modal', function () {
     $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
   });
-}
+};
 
 const onCreateBucket = (event) => {
   event.preventDefault();
@@ -82,6 +82,14 @@ const onDeleteBucket = (event) => {
   .then(onUserBuckets)
   .catch(error => console.error(error))
 };
+
+// Hide users' buckets when navigating to different tabs
+
+const hideUsersBuckets = () => {
+
+};
+
+
 
 const addBucketHandlers = () => {
   $('#create-bucket-form').on('submit', onCreateBucket);

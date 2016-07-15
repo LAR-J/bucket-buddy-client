@@ -1,22 +1,22 @@
-<div>
-  <h4>{{title}}</h4>
-  <div>
-    Category: {{category}}
-  </div>
-  <div>
-    Description:{{description}}
-  </div>
-  <div>
-    Website: {{link}}
-  </div>
-  <div>
-    Let's get this done by the time I'm {{deadline}}
-  </div>
-  <div>
-    Tags: {{tags}}
-  </div>
-  <div class="bucketEditDeleteButtons">
-    <button type="submit" class="delete-bucket-button btn btn-default" id="{{@index}}" data-id="{{_id}}">Delete</button>
-    <button type="submit" class="edit-bucket-button btn btn-default" id="{{@index}}" data-id="{{_id}}" data-toggle="modal" data-target="#modal-fullscreen-update-bucket">Update</button>
-  </div>
+<div class="contents col-md-4">
+    <h4 class="uppercase">{{title}}</h4>
+      <div class="individual-items">
+        Category: {{category}}
+      </div>
+      <div class="individual-items">
+        Description:{{description}}
+      </div>
+      <div class="individual-items">
+        Website: {{link}}
+      </div>
+      <div class="individual-items">
+        Let's get this done by the time I'm {{deadline}}
+      </div>
+      <div class="individual-items">
+        Tags: {{tags}}
+      </div>
+      <div class="bucketEditDeleteButtons">
+        <button type="submit" class="delete-bucket-button btn btn-default" id="{{@index}}" data-id="{{_id}}">Delete</button>
+        <button type="submit" class="edit-bucket-button btn btn-default" id="{{@index}}" data-id="{{_id}}" data-toggle="modal" data-target="#modal-fullscreen-update-bucket">Update</button>
+      </div>
 </div>
