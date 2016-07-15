@@ -18,6 +18,11 @@ div#bucket {
   border-radius: 200px;
 }
 
+nav {
+  display: inline;
+  float: left;
+}
+
 div#sign-up-btn {
   float: left;
   width: 50%;
@@ -26,6 +31,35 @@ div#sign-up-btn {
 div#sign-in-btn {
   float: right;
   width: 50%;
+}
+
+div#user-buckets {
+  width: 85%;
+  float: right;
+}
+
+div.contents {
+  margin: 0 5px 5px 0;
+  background-color: $white;
+  width: 32%;
+  border-radius: 5px;
+}
+
+div.individual-items {
+  padding: 0 0 .5em 0;
+}
+
+button#create-new-bucket {
+  background-color: $background-color;
+  border-color: $background-color;
+  margin-left: 45%;
+}
+
+
+button.delete-bucket-button,
+button.edit-bucket-button {
+  background-color: $bucket-color;
+  border-color: $bucket-color;
 }
 
 button.sign-up, button.sign-in {
@@ -102,6 +136,15 @@ label.upload {
   margin-left: 35%;
 }
 
+h1, h3, h4.modal-title, h6, h6.profile-pic {
+  text-align: center;
+}
+
+h4.uppercase {
+  text-transform: uppercase;
+}
+
+
 /* .modal-fullscreen */
 
 .modal-fullscreen {
@@ -123,28 +166,6 @@ label.upload {
   opacity: .97;
   filter: alpha(opacity=97);
 }
-
-
-
-h1, h3, h4.modal-title, h6, h6.profile-pic {
-  text-align: center;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* .modal-fullscreen size: we use Bootstrap media query breakpoints */
 
