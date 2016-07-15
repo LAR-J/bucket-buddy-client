@@ -49,15 +49,20 @@
         </li>
         <form id="sign-out">
            <fieldset>
-             <button type="submit" class="btn btn-primary user-sign-out">Sign Out</button>
+             <button id="edit-profile" type="submit" class="btn btn-primary user-sign-out">Sign Out</button>
            </fieldset>
         </form>
       </ul>
     </nav>
 
     <!-- View User Profile (rendered w/ Handlebars) -->
-    <div id="user-profile">
-    </div>
+    <section class="user-profile">
+      <div>
+        <button id="edit-profile-button" class="btn btn-primary">Edit profile</button>
+      </div>
+      <div id="user-profile">
+      </div>
+    </section>
 
     <!-- Browse Buckets - View All Bucket Items (rendered w/ Handlebars) -->
     <div id="all-buckets">
@@ -255,90 +260,12 @@
       </form>
     </section>
 
-<!-- UPDATE PROFILE FORM -->
-    <section class="update-profile">
-      <form id="update-profile">
-        <div class="form-group">
-          <h6>________Update Your Profile__________</h6>
-          <h6>Your Name</h6>
-          <fieldset>
-            <input type="text" class="form-control" name="profile[name[firstName]]" placeholder="First Name">
-            <input type="text" class="form-control" name="profile[name[lastName]]" placeholder="Last Name">
-          </fieldset>
-        </div>
-        <hr>
-        <div class="form-group">
-          <h6>Username</h6>
-          <fieldset>
-            <input type="text" class="form-control" name="profile[username]" placeholder="Enter Username" required>
-          </fieldset>
-        </div>
-        <hr>
-        <div class="form-group">
-          <h6>About Me</h6>
-          <fieldset>
-            <textarea class="form-control about-me" name="profile[aboutMe]"></textarea>
-          </fieldset>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <h6>Location</h6>
-              <fieldset>
-                <input type="text" class="form-control three-column" name="profile[city]" placeholder="City">
-              </fieldset>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <h6>Gender</h6>
-              <fieldset>
-                <select name="profile[gender]">
-                  <option value="n">No Answer</option>
-                  <option value="f">Female</option>
-                  <option value="m">Male</option>
-                  <option value="o">Other</option>
-                </select>
-              </fieldset>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <h6>Date of Birth</h6>
-              <fieldset>
-                <input class="form-control three-column" name="profile[dob]" placeholder="Date of Birth" type="date">
-              </fieldset>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="form-group">
-          <h6 class="profile-pic">Choose a Profile Picture</h6>
-            <fieldset>
-              <label class="btn btn-primary upload">
-               Browse&hellip; <span class="glyphicon glyphicon-picture" aria-hidden="true">Picture</span>
-              <input type="file" name="profile[profilePicture]"style="display: none;">
-            </label>
-          </fieldset>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
-    </section>
-
- <!--DELETE PROFILE BUTTON -->
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary" id="delete-profile" value="delete profile">
-    </div>
-
     <!--CREATE BUCKET BUTTON -->
-       <div class="form-group">
-         <button type="button" class="btn btn-primary btn-lg" id="create-new-bucket" data-toggle="modal" data-target="#modal-fullscreen-create-bucket" value="create new bucket">Create New Bucket!</button>
-       </div>
+   <div class="form-group">
+     <button type="button" class="btn btn-primary btn-lg" id="create-new-bucket" data-toggle="modal" data-target="#modal-fullscreen-create-bucket" value="create new bucket">Create New Bucket!</button>
+   </div>
 
-<!--  Create bucket modal - ANDREA-->
+   <!--  Create bucket modal - ANDREA-->
     <div class="modal modal-fullscreen fade create-bucket" id="modal-fullscreen-create-bucket" tabindex="-1" role="dialog" aria-labelledby="myModalLabelCreateBucket" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">

@@ -2,6 +2,24 @@
 
 const app = require('../app.js');
 
+const getProfile = () => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: app.host + '/profiles/',
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+      success: (response) => {
+        resolve(response);
+      },
+      error: (error) => {
+        reject(error);
+      },
+    });
+  });
+};
+
 const createProfile = (data) => {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -40,42 +58,6 @@ const updateProfile = (data) => {
   });
 };
 
-const getProfile = () => {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: app.host + '/profiles/' + app.profile.id,
-      method: 'GET',
-      headers: {
-        Authorization: 'Token token=' + app.user.token,
-      },
-      success: (response) => {
-        resolve(response);
-      },
-      error: (error) => {
-        reject(error);
-      },
-    });
-  });
-};
-
-const getProfiles = () => {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: app.host + '/profiles',
-      method: 'GET',
-      headers: {
-        Authorization: 'Token token=' + app.user.token,
-      },
-      success: (response) => {
-        resolve(response);
-      },
-      error: (error) => {
-        reject(error);
-      },
-    });
-  });
-};
-
 const deleteProfile = () => {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -99,5 +81,4 @@ module.exports = {
   updateProfile,
   getProfile,
   deleteProfile,
-  getProfiles
 };

@@ -1,25 +1,8 @@
-<div id="profile-picture">
-  {{#with profilepicture}}
-    <img src={{profilepicture}} alt="profile picture">
-  {{else}}
-    <img src="https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="default profile image">
-  {{/with}}
-</div>
-<div id="user-info">
-  <h3>{{username}}</h3>
-  <h4>{{name.firstname}} + ' ' + {{name.lastname}}</h4>
-  {{#if aboutme}}
-    <p>{{aboutme}}</p>
-  {{/if}}
-  <ul>
-    {{#if age}}
-      <li>Age: {{age}}</li>
-    {{/if}}
-    {{#if gender}}
-      <li>Gender: {{gender}}</li>
-    {{/if}}
-    {{#if city}}
-      <li>City: {{city}}</li>
-    {{/if}}
-  </ul>
-</div>
+<h3>{{username}}</h3>
+<h4>{{name.firstName}} {{name.lastName}}</h4>
+<p>{{aboutMe}}</p>
+<ul>
+    <li>Age: {{age}}</li>
+    <li>Gender: {{gender}}</li>
+    <li>City: {{city}}</li>
+</ul>
