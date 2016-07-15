@@ -23,6 +23,15 @@ nav {
   float: left;
 }
 
+
+table.table-bordered {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: $white;
+  border: 5px solid $background-color;
+  border-radius: 25px;
+}
+
 div#sign-up-btn {
   float: left;
   width: 50%;
@@ -40,6 +49,11 @@ div#user-buckets, div#all-buckets {
 
 div#user-buckets {
   margin-top: 10em;
+}
+
+div#user-profile {
+  padding-top: 50px;
+  margin-bottom: 20px;
 }
 
 section.user-profile {
@@ -163,6 +177,10 @@ button.user-account:active {
   opacity: .7;
 }
 
+button#edit-profile-button {
+  margin-left: 80px;
+}
+
 input.form-control {
     display: block;
     margin: 0 auto;
@@ -194,12 +212,21 @@ li {
   list-style: none;
 }
 
+tr.justify-items {
+  text-align: justify;
+}
+
+
 h1, h3, h4.modal-title, h6, h6.profile-pic {
   text-align: center;
 }
 
 h1, h3 {
   color: $white;
+}
+
+h3.profile-username {
+  color: $dark;
 }
 
 h2 {
