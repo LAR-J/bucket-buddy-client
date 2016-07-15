@@ -1,8 +1,9 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
-
 #README
 
 ## Bucketli.st
+
+-  Deployed client: https://lar-j.github.io/bucket-buddy-client/
+-  API repository: https://github.com/LAR-J/bucket-buddy-api
 
 How can a person make a bucket list in the modern age? Bucket Buddy is a single page application that collects users’ bucket lists and displays them in the browser. Bucket Buddy incorporates a social aspect to the app wherein the user can view other users’ bucket lists. This app uses the Mongo database, Express node ORM (object relational mapping), crypto node module for providing cryptographic functionality, the languages Javascript and HTML, and mark-up frameworks Bootstrap and Handlebars. 
 Our group, named LAR-J, used past app development experiences to approach this project. That means forethought was key in our approach, both on the back-end and front. Our group addressed general concerns and whittled the code to more specific features as time went further. For instance, the database was developed comprehensively without the need for continuing alterations, as in adding collections and redeploying. The front end had a similar method. First, we compartmentalized the home page with modals then configured an extensive navigation bar for the main page. This approach can be appreciated by both the users and the development team.
