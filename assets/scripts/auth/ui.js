@@ -16,9 +16,9 @@ const signUpFailure = () => {
 
 const success = (data) => {
   if (data) {
-    console.log(data);
+    // console.log(data);
   } else {
-    console.log('Success');
+    // console.log('Success');
   }
 };
 
@@ -34,6 +34,7 @@ const signInSuccess = (data) => {
   $("#modal-fullscreen-sign-in").modal('hide');
   $("#sign-in-message").text("");
   $(".sign-in-fields").val("");
+  $('#view-all-user-buckets').trigger('click');
 };
 
 const signInFailure = () => {
@@ -42,7 +43,7 @@ const signInFailure = () => {
 };
 
 const signOutSuccess = () => {
-  console.log('User signed out successfully');
+  // console.log('User signed out successfully');
   homePageEvents.displayHomePage();
   homePageEvents.hideNav();
   app.user = null;
@@ -54,9 +55,10 @@ const signOutSuccess = () => {
   $(".display-nav").show();
   $(".hide-nav").hide();
   $("#user-profile").html('');
-  $('#user-bucket')
   $('#all-buckets').html('');
   $('#user-buckets').html('');
+  $('#edit-profile-button').hide();
+  $("#create-new-bucket").hide();
 };
 
 const changePasswordSuccess = () => {

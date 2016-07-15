@@ -6,11 +6,14 @@ const api = require('./profile-api');
 const ui = require('./profile-ui');
 
 const onGetUserProfile = () => {
+  $('#edit-profile-button').show();
   return api.getProfile()
   .then(ui.getProfileSuccess)
   .catch((error) => {
     console.error(error);
     $('.create-profile').show();
+    $('#all-buckets').html('');
+    $('#user-buckets').html('');
   })
 };
 
