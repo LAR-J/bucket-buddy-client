@@ -42,6 +42,10 @@ div#user-buckets {
   margin-top: 10em;
 }
 
+section.user-profile {
+  text-align: center;
+}
+
 div.contents {
   margin: 0 5px 5px 0;
   background-color: $white;
@@ -62,6 +66,42 @@ button#create-new-bucket {
   margin-left: 40%;
 }
 
+form#create-profile {
+  max-width: 1115px;
+  margin: 0 auto;
+}
+
+fieldset {
+  width: 100%;
+}
+
+legend {
+  text-align: center;
+}
+
+select.gender {
+  margin-left: 38%;
+}
+
+div.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+
+button.profile-submit {
+  float: right;
+  background-color: $bucket-color;
+  border-color: $bucket-color;
+}
+
+button.profile-submit:hover {
+  background-color: $bucket-color;
+  border-color: $bucket-color;
+}
 
 button.delete-bucket-button,
 button.edit-bucket-button {
@@ -148,6 +188,10 @@ label {
 label.upload {
   width: 30%;
   margin-left: 35%;
+}
+
+li {
+  list-style: none;
 }
 
 h1, h3, h4.modal-title, h6, h6.profile-pic {
