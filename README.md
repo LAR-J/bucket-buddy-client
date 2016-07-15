@@ -14,10 +14,3 @@ Users come to the Bucket Buddy page to list their life goals and socially engage
 As developers, we want to create a NoSQL database to store user and profile information as well as user generated content like bucket items and lists.
 
 As developers, we want to make a single page app that seamlessly directs a user from signing up and in to engaging with the main feature of the app, with that app talking to the database. 
-
-
-
-
-![sign up page](https://cloud.githubusercontent.com/assets/16338632/16863244/b749e53c-4a1e-11e6-85e3-ee40af536139.png)
-
-![user s bucket page](https://cloud.githubusercontent.com/assets/16338632/16863249/c1bcae78-4a1e-11e6-8f88-9747a81ebe19.png)
