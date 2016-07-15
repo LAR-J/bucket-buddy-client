@@ -36,9 +36,15 @@ const onSignOut = (event) => {
 const onChangePassword = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
-  api.changePassword(data)
-  .done(ui.success)
-  .fail(ui.failure);
+  if(data.passwords.old === data.passwords.new) {
+    $("#change-password-message").html("Nice try. Pick a new password.");
+  } else if(data.passwords.new) {
+    api.changePassword(data)
+    .done(ui.changePasswordSuccess)
+    .fail(ui.changPasswordFailure);
+  } else {
+    $("#change-password-message").html("Please enter a password.");
+  }
 };
 
 

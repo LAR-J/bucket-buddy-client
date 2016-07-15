@@ -51,6 +51,19 @@ const signOutSuccess = () => {
   $("#sign-up-message").html("");
 };
 
+const changePasswordSuccess = () => {
+  $("#change-password-message").text("");
+  $("#change-password-message").html("");
+  $("#modal-change-password").modal('hide');
+}
+
+const changePasswordFailure= () => {
+  $("#change-password-message").text("");
+  $("#change-password-message").html("WRONG! Check your old password");
+};
+
+
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -59,4 +72,6 @@ module.exports = {
   signInSuccess,
   signInFailure,
   signOutSuccess,
+  changePasswordSuccess,
+  changePasswordFailure
 };
