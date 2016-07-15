@@ -5,11 +5,13 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./profile-api');
 const ui = require('./profile-ui');
 
-const onViewProfile = () => {
-  event.preventDefault();
+const onGetUserProfile = () => {
   return api.getProfile()
-  .then(ui.viewProfile)
-  .catch(error => console.error(error))
+  .then(ui.getProfileSuccess)
+  .catch((error) => {
+    console.error(error);
+    $('.create-profile').show();
+  })
 };
 
 const onCreateProfile = (event) => {
@@ -27,17 +29,11 @@ const onDeleteProfile = (event) => {
   .catch(error => console.error(error))
 };
 
-const onGetProfile = () => {
-  return api.getProfile()
-  .then(ui.getProfileSuccess)
-  .catch(error => console.error(error))
-};
-
 const onUpdateProfile = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
   return api.updateProfile(data)
-  .then(onGetProfile)
+  .then(onGetUserProfile)
   .then(ui.updateProfileSuccess)
   .catch(error => console.error(error))
 };
@@ -47,14 +43,21 @@ const showUpdateProfile = (event) => {
   return api.getProfiles()
   .then(ui.showUpdateSuccess)
   .catch(error => console.error(error))
-}
+};
+
+const loadEditProfile = () => {
+  event.preventDefault();
+  ui.editProfileForm();
+  $('#update-profile').on('submit', onUpdateProfile);
+};
 
 const addProfileHandlers = () => {
   $('#create-profile').on('submit', onCreateProfile);
   $('#update-profile').on('submit', onUpdateProfile);
   $('#delete-profile').on('click', onDeleteProfile);
   $('#update-profile-nav').on('click', showUpdateProfile);
-  $('#view-profile-nav')
+  $('#view-profile-nav').on('click', onGetUserProfile);
+  $('#edit-profile-button').on('click', loadEditProfile);
 };
 
 module.exports = {

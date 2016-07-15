@@ -1,10 +1,14 @@
 'use strict';
 
 const app = require('../app.js');
+const viewProfileTemplate = require('../templates/view-profile.handlebars');
+const editProfileTemplate = require('../templates/edit-profile.handlebars');
 
 const createProfileSuccess = (data) => {
   app.profile = data.profile;
   $('.create-profile').hide();
+  $('#user-profile').html(viewProfileTemplate(app.profile));
+  $('.user-profile').show();
 };
 
 const updateProfileSuccess = () => {
@@ -13,6 +17,9 @@ const updateProfileSuccess = () => {
 
 const getProfileSuccess = (data) => {
   app.profile = data.profile;
+  console.log(app.profile);
+  $('#user-profile').html(viewProfileTemplate(app.profile));
+  $('.user-profile').show();
 };
 
 const deleteProfileSuccess = () => {
@@ -26,10 +33,15 @@ const showUpdateSuccess = (data) => {
   $('.update-profile').show();
 };
 
+const editProfileForm = () => {
+  $('#user-profile').html(editProfileTemplate(app.profile));
+};
+
 module.exports = {
   createProfileSuccess,
   getProfileSuccess,
   deleteProfileSuccess,
   updateProfileSuccess,
   showUpdateSuccess,
+  editProfileForm,
 };
