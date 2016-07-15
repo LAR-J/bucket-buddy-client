@@ -36,7 +36,9 @@ const onSignOut = (event) => {
 const onChangePassword = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
-  if(data.passwords.new) {
+  if(data.passwords.old === data.passwords.new) {
+    $("#change-password-message").html("Nice try. Pick a new password.");
+  } else if(data.passwords.new) {
     api.changePassword(data)
     .done(ui.changePasswordSuccess)
     .fail(ui.changPasswordFailure);
