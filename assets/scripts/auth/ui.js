@@ -53,7 +53,10 @@ const signOutSuccess = () => {
   $(".display-homescreen").show();
   $(".display-nav").show();
   $(".hide-nav").hide();
-
+  $("#user-profile").html('');
+  $('#user-bucket')
+  $('#all-buckets').html('');
+  $('#user-buckets').html('');
 };
 
 const changePasswordSuccess = () => {

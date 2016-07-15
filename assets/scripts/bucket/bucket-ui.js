@@ -28,13 +28,14 @@ const updateBucketFailure = (error) => {
 const showBucketSuccess = (data) => {
   app.bucket = data.bucket;
   console.log(app.bucket);
-  $('#update-bucket-form').html(updateBucketTemplate(app.bucket));
 
   //handlebars?
 };
 
 const showAllBucketsSuccess = (data) => {
   console.log(data);
+  $('#user-profile').html('');
+  $('#user-buckets').html('');
   $('#all-buckets').html(allBucketsTemplate(data));
 
   //handlebars?
@@ -46,6 +47,9 @@ const showBucketFailure = (error) => {
 
 const showUserBucketsSuccess = (data) => {
   $('#user-buckets').html(bucketTemplate(data));
+  $('#user-profile').html('');
+  $('#all-buckets').html('');
+  $('#update-bucket-form').html(updateBucketTemplate(app.bucket));
 };
 //
 // const showAllBucketsFailure = (error) => {
