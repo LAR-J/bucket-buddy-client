@@ -49,6 +49,11 @@ const signOutSuccess = () => {
   $("#sign-in-message").text("");
   $("#sign-up-message").text("");
   $("#sign-up-message").html("");
+  $(".hide-homescreen").hide();
+  $(".display-homescreen").show();
+  $(".display-nav").show();
+  $(".hide-nav").hide();
+
 };
 
 const changePasswordSuccess = () => {
