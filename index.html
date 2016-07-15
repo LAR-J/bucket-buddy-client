@@ -36,7 +36,7 @@
             <!-- removed dropdown from profile -->
             <button id="view-profile-nav" type="button" class="btn btn-primary user-nav" aria-expanded="false">Profile</button>
         </li>
-        <li role="presentation"><button type="button" class="btn btn-primary user-nav">Browse Buckets</button></li>
+        <li role="presentation"><button type="button" id="view-all-user-buckets" class="btn btn-primary user-nav">Browse Buckets</button></li>
         <li role="presentation"><button id="open-my-buckets" type="button" class="btn btn-primary user-nav">My Buckets</button></li>
         <li role="presentation">
           <div class="btn-group">
@@ -65,7 +65,7 @@
     </section>
 
     <!-- Browse Buckets - View All Bucket Items (rendered w/ Handlebars) -->
-    <div id="all-buckets">
+    <div id="all-buckets" class="row col-lg-12">
     </div>
 
     <!-- My Buckets - View User's Bucket Items (rendered w/ Handlebars) -->
@@ -262,9 +262,9 @@
 
 
    <!--VIEW ALL BUCKETS -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <button type="button" class="btn btn-primary btn-lg" id="view-all-user-buckets" value="bucket feed">Bucket Feed</button>
-      </div>
+      </div> -->
 
 <!-- UPDATE PROFILE FORM -->
     <section class="update-profile">
@@ -346,7 +346,7 @@
 
     <!--CREATE BUCKET BUTTON -->
        <div class="form-group">
-         <button type="button" class="btn btn-primary btn-lg" id="create-new-bucket" data-toggle="modal" data-target="#modal-fullscreen-create-bucket" value="create new bucket"><span class="glyphicon glyphicon-plus-sign"></span>Create New Bucket!</button>
+         <button type="button" class="btn btn-primary btn-lg" id="create-new-bucket" data-toggle="modal" data-target="#modal-fullscreen-create-bucket" value="create new bucket"><span class="glyphicon glyphicon-plus-sign"></span><h2>Create New Bucket!</h2></button>
        </div>
 
 <!--  Create bucket modal - ANDREA-->

@@ -86,7 +86,7 @@ const onDeleteBucket = (event) => {
 // Hide users' buckets when navigating to different tabs
 
 const hideUsersBuckets = () => {
-  
+
 };
 
 
