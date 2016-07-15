@@ -7,14 +7,8 @@ const updateBucketTemplate = require('./../templates/update-bucket-form.handleba
 const allBucketsTemplate = require('./../templates/view-all-bucket.handlebars');
 
 const createBucketSuccess = (data) => {
-  if (data) {
-  console.log(data);
-  } else {
-   console.log('Success');
-  }
   app.bucket = data.bucket;
-    $(".modal-fullscreen.create-bucket").modal('hide');
-
+  $(".modal-fullscreen.create-bucket").modal('hide');
 };
 
 const createBucketFailure = (error) => {
@@ -27,16 +21,18 @@ const updateBucketFailure = (error) => {
 
 const showBucketSuccess = (data) => {
   app.bucket = data.bucket;
-  console.log(app.bucket);
+  // console.log(app.bucket);
 
   //handlebars?
 };
 
 const showAllBucketsSuccess = (data) => {
-  console.log(data);
+  // console.log(data);
   $('#user-profile').html('');
   $('#user-buckets').html('');
   $('#all-buckets').html(allBucketsTemplate(data));
+  $('#edit-profile-button').hide();
+  $("#create-new-bucket").hide();
 
   //handlebars?
 };
@@ -50,6 +46,7 @@ const showUserBucketsSuccess = (data) => {
   $('#user-profile').html('');
   $('#all-buckets').html('');
   $('#update-bucket-form').html(updateBucketTemplate(app.bucket));
+  $('#edit-profile-button').hide();
 };
 //
 // const showAllBucketsFailure = (error) => {
@@ -57,7 +54,7 @@ const showUserBucketsSuccess = (data) => {
 // };
 
 const deleteBucketSuccess = () => {
-  console.log('Bucket deleted successfully');
+  // console.log('Bucket deleted successfully');
   app.bucket = null;
 };
 

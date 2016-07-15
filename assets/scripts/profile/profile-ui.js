@@ -9,6 +9,7 @@ const createProfileSuccess = (data) => {
   $('.create-profile').hide();
   $('#user-profile').html(viewProfileTemplate(app.profile));
   $('.user-profile').show();
+  $("#create-new-bucket").hide();
 };
 
 const updateProfileSuccess = () => {
@@ -17,19 +18,21 @@ const updateProfileSuccess = () => {
 
 const getProfileSuccess = (data) => {
   app.profile = data.profile;
-  console.log(app.profile);
+  // console.log(app.profile);
   $('#user-profile').html(viewProfileTemplate(app.profile));
   $('.user-profile').show();
+  $('#all-buckets').html('');
+  $('#user-buckets').html('');
 };
 
 const deleteProfileSuccess = () => {
-  console.log('Profile deleted successfully');
+  // console.log('Profile deleted successfully');
   app.profile = null;
 };
 
 const showUpdateSuccess = (data) => {
   app.profile = data.profile;
-  console.log(app.profile);
+  // console.log(app.profile);
   $('.update-profile').show();
 };
 

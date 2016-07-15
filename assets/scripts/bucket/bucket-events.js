@@ -22,7 +22,7 @@ const onCreateBucket = (event) => {
   let data = getFormFields(event.target);
 //  console.log(data);
   data.bucket.tags = data.bucket.tags.split(',');
-  console.log(data.bucket.tags);
+  // console.log(data.bucket.tags);
   api.createBucket(data)
   .then(ui.createBucketSuccess)
   .then(onUserBuckets)
@@ -54,7 +54,7 @@ const onAllUserBuckets = () => {
 const onUpdateBucket = (event) => {
   event.preventDefault();
   let buttonId = $(event.target).find('.save-bucket-button').attr('data-id');
-  console.log(buttonId);
+  // console.log(buttonId);
   let data = getFormFields(event.target);
   api.updateBucket(data, buttonId)
   .then(ui.updateBucketSuccess)
@@ -65,7 +65,7 @@ const onUpdateBucket = (event) => {
 const onEditBucket = (event) => {
     event.preventDefault();
     let buttonId = $(event.target).attr('data-id');
-    console.log(buttonId);
+    // console.log(buttonId);
     api.showBucket(buttonId)  //send buttonID for get request
     .then(ui.showBucketSuccess)
     .then(() => {
