@@ -7,22 +7,38 @@ body {
   background-color: $background-color;
 }
 
-div#bucket {
-  width: 0;
-  height: 0;
-  margin: $horizontal-margin;
-  border-right: 200px solid $bucket-color;
-  border-top: 200px solid transparent;
-  border-left: 200px solid $bucket-color;
-  border-bottom: 200px solid $bucket-color;
-  border-radius: 200px;
-}
+// div#bucket {
+//   width: 0;
+//   height: 0;
+//   margin: $horizontal-margin;
+//   border-right: 200px solid $bucket-color;
+//   border-top: 200px solid transparent;
+//   border-left: 200px solid $bucket-color;
+//   border-bottom: 200px solid $bucket-color;
+//   border-radius: 200px;
+// }
 
 nav {
   display: inline;
   float: left;
 }
 
+video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(../../lib/swimming.png) no-repeat;
+  background-size: cover;
+}
 
 table.table-bordered {
   max-width: 600px;
@@ -220,6 +236,42 @@ tr.justify-items {
 h1, h3, h4.modal-title, h6, h6.profile-pic {
   text-align: center;
 }
+
+h1 {
+  font-size: 4em;
+}
+
+h1 span {
+  border-radius: 4px;
+  padding: 5px;
+}
+
+h1 span:nth-child(7n+1) {
+  background: #ff6644;
+}
+
+h1 span:nth-child(7n+2) {
+  background:#feae2d;
+}
+
+h1 span:nth-child(7n+3) {
+  background: #d0c310;
+}
+
+h1 span:nth-child(7n+4) {
+  background: #69d025;
+}
+
+h1 span:nth-child(7n+5) {
+  background: #12bdb9;
+}
+
+h1 span:nth-child(7n+6) {
+  background: #4444dd;
+}
+
+
+
 
 h1, h3 {
   color: $white;
